@@ -9,27 +9,27 @@ Usage:
 	Go <cmd>
 
 The following commands are available:
-	Go addtags <tags>	# Adds the given tags to the selected struct fields.
-	Go cle <scope>		# Shows possible targets of the function call under the cursor.
-	Go clr <scope>		# Shows possible callers of the function under the cursor.
-	Go cs <scope>		# Shows the path from the callgraph root to the function under the cursor.
-	Go def			# Shows the declaration for the identifier under the cursor.
-	Go desc			# Describes the declaration for the syntax under the cursor.
-	Go doc			# Shows the documentation for the entity under the cursor.
-	Go err <scope>		# Shows possible values of the error variable under the cursor.
-	Go ex <name>		# Extracts the selected statements to a new function/method with name <name>.
-	Go fstruct		# Fills a struct literal with default values.
-	Go fswitch		# Fills a (type) switch statement with case statements.
-	Go fv			# Shows the free variables of the selected snippet.
+	Go addtags <tags>		# Adds the given tags to the selected struct fields.
+	Go cle <scope>			# Shows possible targets of the function call under the cursor.
+	Go clr <scope>			# Shows possible callers of the function under the cursor.
+	Go cs <scope>			# Shows the path from the callgraph root to the function under the cursor.
+	Go def					# Shows the declaration for the identifier under the cursor.
+	Go desc					# Describes the declaration for the syntax under the cursor.
+	Go doc					# Shows the documentation for the entity under the cursor.
+	Go err <scope>			# Shows possible values of the error variable under the cursor.
+	Go ex <name>			# Extracts the selected statements to a new function/method with name <name>.
+	Go fstruct				# Fills a struct literal with default values.
+	Go fswitch				# Fills a (type) switch statement with case statements.
+	Go fv					# Shows the free variables of the selected snippet.
 	Go impl <recv> <iface>	# Generates method stubs with receiver <recv> for implementing the interface <iface> and inserts them at the location of the cursor.
 	Go impls <scope>		# Shows the `implements` relation for the type or method under the cursor.
 	Go peers <scope>		# Shows send/receive corresponding to the selected channel op.
-	Go pto <scope>		# Shows variables the selected pointer may point to.
-	Go refs			# Shows all refs to the entity denoted by identifier under the cursor.
+	Go pto <scope>			# Shows variables the selected pointer may point to.
+	Go refs					# Shows all refs to the entity denoted by identifier under the cursor.
 	Go rmtags <tags>		# Removes the given tags from the selected struct fields.
-	Go rn <name>		# Renames the entity under the cursor with <name>.
-	Go share			# Uploads the selected snippet to play.golang.org and prints the URL.
-	Go what			# Shows basic information about the selected syntax node.
+	Go rn <name>			# Renames the entity under the cursor with <name>.
+	Go share				# Uploads the selected snippet to play.golang.org and prints the URL.
+	Go what					# Shows basic information about the selected syntax node.
 
 <scope> is a comma-separated list of packages the analysis should be limited to, this parameter is optional.
 
@@ -57,22 +57,22 @@ const usage = `Usage: Go <cmd>
 
 Commands:
 	addtags	adds tags to the selected struct fields
-	cle	shows possible targets of the selected function call
-	clr	shows possible callers of the selected function
-	cs	shows the path from the callgraph root to the selected function
-	def	shows declaration of selected identifier
+	cle		shows possible targets of the selected function call
+	clr		shows possible callers of the selected function
+	cs		shows the path from the callgraph root to the selected function
+	def		shows declaration of selected identifier
 	desc	describes the selected syntax: definition, methods, etc.
-	doc	shows documentation for items in Go source code
-	err	shows possible values of the selected error variable
-	ex	extracts statements to a new function/method
+	doc		shows documentation for items in Go source code
+	err		shows possible values of the selected error variable
+	ex		extracts statements to a new function/method
 	fstruct	fills a struct literal with default values
-	fv	shows declaration of selected identifier
+	fv		shows declaration of selected identifier
 	impl	generate method stubs for implementing an interface
 	impls	shows the 'implements' relation for the selected type or method
 	peers	shows send/receive corresponding to selected channel op
-	pto	shows variables the selected pointer may point to
+	pto		shows variables the selected pointer may point to
 	rmtags	removes tags from the selected struct fields
-	rn	renames the selected identifier
+	rn		renames the selected identifier
 	refs	shows all refs to the entity denoted by selected identifier
 	share	uploads the selected code to play.golang.org
 	what	shows basic information about the selected syntax node
