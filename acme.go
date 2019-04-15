@@ -168,7 +168,7 @@ func plumbText(data string) error {
 	defer f.Close()
 
 	m := &plumb.Message{
-		Src:  "A",
+		Src:  "Go",
 		Dst:  "edit",
 		Dir:  "/",
 		Type: "text",
