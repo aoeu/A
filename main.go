@@ -21,6 +21,7 @@ The following commands are available:
 	Go fstruct				# Fills a struct literal with default values.
 	Go fswitch				# Fills a (type) switch statement with case statements.
 	Go fv					# Shows the free variables of the selected snippet.
+	Go help					# Prints usage documentation of the command.
 	Go impl <recv> <iface>	# Generates method stubs with receiver <recv> for implementing the interface <iface> and inserts them at the location of the cursor.
 	Go impls <scope>		# Shows the `implements` relation for the type or method under the cursor.
 	Go peers <scope>		# Shows send/receive corresponding to the selected channel op.
@@ -47,6 +48,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -56,26 +58,27 @@ import (
 const usage = `Usage: Go <cmd>
 
 Commands:
-	addtags	adds tags to the selected struct fields
-	cle		shows possible targets of the selected function call
-	clr		shows possible callers of the selected function
-	cs		shows the path from the callgraph root to the selected function
-	def		shows declaration of selected identifier
-	desc	describes the selected syntax: definition, methods, etc.
-	doc		shows documentation for items in Go source code
-	err		shows possible values of the selected error variable
-	ex		extracts statements to a new function/method
-	fstruct	fills a struct literal with default values
-	fv		shows declaration of selected identifier
-	impl	generate method stubs for implementing an interface
-	impls	shows the 'implements' relation for the selected type or method
-	peers	shows send/receive corresponding to selected channel op
-	pto		shows variables the selected pointer may point to
-	rmtags	removes tags from the selected struct fields
-	rn		renames the selected identifier
-	refs	shows all refs to the entity denoted by selected identifier
-	share	uploads the selected code to play.golang.org
-	what	shows basic information about the selected syntax node
+	addtags     adds tags to the selected struct fields
+	cle         shows possible targets of the selected function call
+	clr         shows possible callers of the selected function
+	cs          shows the path from the callgraph root to the selected function
+	def         shows declaration of selected identifier
+	desc        describes the selected syntax: definition, methods, etc.
+	doc         shows documentation for items in Go source code
+	err         shows possible values of the selected error variable
+	ex          extracts statements to a new function/method
+	fstruct     fills a struct literal with default values
+	fv          shows declaration of selected identifier
+	help        prints this usage documentation
+	impl        generate method stubs for implementing an interface
+	impls       shows the 'implements' relation for the selected type or method
+	peers       shows send/receive corresponding to selected channel op
+	pto         shows variables the selected pointer may point to
+	rmtags      removes tags from the selected struct fields
+	rn          renames the selected identifier
+	refs        shows all refs to the entity denoted by selected identifier
+	share       uploads the selected code to play.golang.org
+	what        shows basic information about the selected syntax node
 `
 
 var cmds = map[string]func(selection, []string){
@@ -108,6 +111,12 @@ func main() {
 
 	if len(os.Args) < 2 {
 		log.Fatal(usage)
+	}
+
+	switch os.Args[1] {
+	case "help", "-help", "--help", "h", "-h", "--h":
+		fmt.Println(usage)
+		os.Exit(0)
 	}
 
 	s, err := readSelection()
